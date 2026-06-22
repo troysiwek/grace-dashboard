@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Grace Dashboard</title>
+<style>
+  :root{
+    --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --muted:#6b6a66; --faint:#9b9a95;
+    --line:#e7e5e0; --accent:#1f6feb; --good:#1d7a4d; --lead:#f5f3ee;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16161a; --card:#1e1e23; --ink:#ececec; --muted:#a3a2a0; --faint:#76756f;
+      --line:#2c2c33; --accent:#5aa0ff; --good:#5fce9a; --lead:#23232a; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
+  header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}
+  h1{font-size:22px;font-weight:600;margin:0;letter-spacing:-.2px}
+  .stamp{font-size:13px;color:var(--muted)}
+  h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);margin:32px 0 12px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .read{font-size:13px;white-space:nowrap}
+  .lead{background:var(--lead);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+  .lead .tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+  .lead h3{font-size:16px;font-weight:600;margin:4px 0 6px}
+  .lead p{margin:0;color:var(--muted);font-size:14.5px}
+  .lead p .why{color:var(--ink)}
+  .src{margin-bottom:16px}
+  .src .name{font-size:13px;font-weight:600;color:var(--ink)}
+  .src .name span{font-weight:400;color:var(--faint)}
+  .item{font-size:14.5px;margin-top:5px}
+  .item .t{color:var(--ink)}
+  .item .d{color:var(--muted)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .metric .k{font-size:13px;color:var(--muted)}
+  .metric .v{font-size:22px;font-weight:600;margin-top:2px}
+  .metric .s{font-size:12px;color:var(--faint)}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:6px}
+  td{padding:7px 0;border-bottom:1px solid var(--line)}
+  td:first-child{color:var(--muted)}
+  td:last-child{text-align:right}
+  tr:last-child td{border-bottom:none}
+  .news li{margin:6px 0;font-size:14.5px;color:var(--muted)}
+  .news .t{color:var(--ink)}
+  .burry{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:14px}
+  .burry h3{font-size:14px;font-weight:600;margin:0 0 8px}
+  .burry div{font-size:14.5px;color:var(--muted);margin:3px 0}
+  .buy{color:var(--good);font-weight:600}
+  ul{margin:0;padding-left:18px}
+  footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Grace Dashboard</h1>
+    <div class="stamp">Refreshed Sun Jun 21, 2026 · 4:56 AM CT · <span title="equities &amp; 10-yr = Thu Jun 18 close (markets closed Fri for Juneteenth); crypto &amp; metals live">prices: last close / live</span></div>
+  </header>
+
+  <h2>Intel</h2>
+
+  <div class="lead">
+    <div class="tag">Lead · cross-source</div>
+    <h3>Own your AI workflows, don't rent them</h3>
+    <p>Nate Jones's <em>Open Skills</em> (portable agent skills that move across Claude Code, Codex, Cursor) lands the same week Castmagic ships a read-only Claude connector. The signal: AI value is shifting from the model to the workflow you own. <span class="why">For BrightSol: productize a client's workflow as portable, owned skills + connectors.</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></p>
+  </div>
+
+  <div class="src">
+    <div class="name">Nate Jones <span>· core source</span></div>
+    <div class="item"><span class="t">Open Skills, the library</span> <span class="d">— installable public agent skills; "the way you work should be yours."</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+    <div class="item"><span class="t">Prompt ≠ memory ≠ skill</span> <span class="d">— only the skill survives a tool switch.</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+    <div class="item"><span class="t">The one-question ownership test</span> <span class="d">— "can this workflow move tools intact?"</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+  </div>
+
+  <div class="src">
+    <div class="name">The AI Break <span>· other source</span></div>
+    <div class="item"><span class="t">AI Creator Outreach Engine</span> <span class="d">— a 6-prompt chain that replaces a ~$2K/mo influencer agency; ready to hand creator/retail clients.</span> <a class="read" href="https://theaibreak.substack.com/p/tutorial-replace-your-2kmonth-influencer">Read →</a></div>
+  </div>
+
+  <div class="src">
+    <div class="name">Superhuman <span>· other source</span></div>
+    <div class="item"><span class="t">Waymo "Premier"</span> <span class="d">— a $29.99/mo robotaxi subscription; loyalty economics arrive in autonomous services.</span> <a class="read" href="https://www.cnbc.com/2026/06/11/waymo-launches-premier-subscription-tier-for-29point99-a-month.html">Read →</a></div>
+  </div>
+
+  <h2>Markets &amp; financial news</h2>
+
+  <div class="cards">
+    <div class="metric"><div class="k">Bitcoin</div><div class="v">$66.0K</div><div class="s">24h $64.1K–$66.3K</div></div>
+    <div class="metric"><div class="k">Gold</div><div class="v">$4,169</div><div class="s">/oz · near record</div></div>
+    <div class="metric"><div class="k">Silver</div><div class="v">$65.56</div><div class="s">/oz · Sun AM</div></div>
+  </div>
+
+  <table>
+    <tr><td>S&amp;P 500</td><td>7,500.58 &nbsp;<span style="color:var(--faint)">+1.08%</span></td></tr>
+    <tr><td>Nasdaq</td><td>26,517.93 &nbsp;<span style="color:var(--faint)">+1.91%</span></td></tr>
+    <tr><td>Dow</td><td>51,564.70 &nbsp;<span style="color:var(--faint)">+0.14%</span></td></tr>
+    <tr><td>NVIDIA (NVDA)</td><td>$210.69</td></tr>
+    <tr><td>WTI crude</td><td>~$77.5</td></tr>
+    <tr><td>10-yr Treasury</td><td>4.46%</td></tr>
+    <tr><td>SpaceX (SPCX)</td><td>$185.00</td></tr>
+  </table>
+
+  <ul class="news">
+    <li><span class="t">SpaceX completes the largest IPO in history</span> (Jun 12): ~$75B raised at $135/sh, now ~$185 — ~$2.44T cap. <a class="read" href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html">Read →</a></li>
+    <li><span class="t">Stocks rebounded Thu Jun 18</span> (Nasdaq +1.9%) after the post-Fed selloff; markets closed Fri for Juneteenth. <a class="read" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-18-2026">Read →</a></li>
+    <li><span class="t">Gold holds near a record</span> ~$4,169/oz, silver ~$65.6 as the metals run extends. <a class="read" href="https://fortune.com/article/current-price-of-gold-06-12-2026/">Read →</a></li>
+  </ul>
+
+  <div class="burry">
+    <h3>Michael Burry · Trading Post (Jun 18)</h3>
+    <div><span class="buy">BUY</span> Mercado Libre (MELI) ~$1,630 — down 39% from its high; "quality on sale."</div>
+    <div><span class="buy">BUY</span> Fiserv (FISV) ~$49.50 — added to a full position.</div>
+    <div><strong>HOLD</strong> Samsung Electronics — top-3, built near tangible book.</div>
+    <div>AI-skeptic: "LLMs are language models, not AI"; wary of the AI-capex trade. <a class="read" href="https://michaeljburry.substack.com/p/trading-post-june-18-2026">Read →</a></div>
+  </div>
+
+  <footer>Grace · AI Chief of Staff · intel + markets surface. The #grace post carries the action view and links here. Auto-refreshed each morning.</footer>
+
+</div>
+</body>
+</html>
