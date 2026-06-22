@@ -7,124 +7,181 @@
 <title>Grace Dashboard</title>
 <style>
   :root{
-    --bg:#faf9f7; --card:#ffffff; --ink:#1c1b19; --muted:#6b6a66; --faint:#9b9a95;
-    --line:#e7e5e0; --accent:#1f6feb; --good:#1d7a4d; --lead:#f5f3ee;
+    --bg:#e9ebf0; --ink:#1b1c20; --muted:#5d5f66; --faint:#8a8c93;
+    --card:#ffffff; --line:#dfe1e7; --accent:#2563eb;
+    --intel:#3b3f9e; --intel-tint:#eef0fc;
+    --mkt:#0f766e; --mkt-tint:#e7f4f1;
+    --burry:#b45309; --burry-tint:#fdf2e2;
+    --btc:#b45309; --btc-tint:#fdeede;
+    --gold:#a16207; --gold-tint:#fbf4d8;
+    --silver:#475569; --silver-tint:#eef1f4;
+    --zebra:#f6f7f9;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --bg:#16161a; --card:#1e1e23; --ink:#ececec; --muted:#a3a2a0; --faint:#76756f;
-      --line:#2c2c33; --accent:#5aa0ff; --good:#5fce9a; --lead:#23232a; }
+    :root{
+      --bg:#121317; --ink:#ececee; --muted:#a6a8af; --faint:#74767d;
+      --card:#1d1e24; --line:#31333c; --accent:#6ea2ff;
+      --intel:#aab0ff; --intel-tint:#23253a;
+      --mkt:#5fd0c0; --mkt-tint:#16302c;
+      --burry:#e8a24f; --burry-tint:#33260f;
+      --btc:#e8a24f; --btc-tint:#33260f;
+      --gold:#d9b341; --gold-tint:#302a10;
+      --silver:#9fb0c4; --silver-tint:#1f2630;
+      --zebra:#23242b;
+    }
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px}
-  header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-    flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}
-  h1{font-size:22px;font-weight:600;margin:0;letter-spacing:-.2px}
-  .stamp{font-size:13px;color:var(--muted)}
-  h2{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
-    color:var(--muted);margin:32px 0 12px}
+  .wrap{max-width:780px;margin:0 auto;padding:22px 16px 64px}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
-  .read{font-size:13px;white-space:nowrap}
-  .lead{background:var(--lead);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px}
-  .lead .tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
-  .lead h3{font-size:16px;font-weight:600;margin:4px 0 6px}
+  .read{font-size:13px;font-weight:600;white-space:nowrap}
+
+  .topbar{background:var(--intel);color:#fff;border-radius:14px;padding:18px 22px;margin-bottom:20px}
+  .topbar h1{margin:0;font-size:22px;font-weight:700;letter-spacing:-.2px}
+  .topbar .stamp{font-size:13px;opacity:.9;margin-top:3px}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;margin-bottom:20px}
+  .phead{padding:12px 20px;color:#fff;font-weight:700;
+    font-size:14px;text-transform:uppercase;letter-spacing:.07em}
+  .phead.intel{background:var(--intel)}
+  .phead.mkt{background:var(--mkt)}
+  .pbody{padding:18px 20px}
+
+  .lead{background:var(--intel-tint);border-left:4px solid var(--intel);border-radius:8px;
+    padding:14px 16px;margin-bottom:18px}
+  .lead .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--intel)}
+  .lead h3{font-size:16px;font-weight:700;margin:3px 0 6px}
   .lead p{margin:0;color:var(--muted);font-size:14.5px}
-  .lead p .why{color:var(--ink)}
-  .src{margin-bottom:16px}
-  .src .name{font-size:13px;font-weight:600;color:var(--ink)}
-  .src .name span{font-weight:400;color:var(--faint)}
-  .item{font-size:14.5px;margin-top:5px}
-  .item .t{color:var(--ink)}
+  .lead .why{color:var(--ink);font-weight:500}
+
+  .src{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:12px;background:var(--card)}
+  .src:last-child{margin-bottom:0}
+  .chip{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--intel);background:var(--intel-tint);padding:3px 9px;border-radius:999px;margin-bottom:8px}
+  .item{font-size:14.5px;padding:5px 0;border-top:1px solid var(--line)}
+  .item:first-of-type{border-top:none}
+  .item .t{font-weight:600;color:var(--ink)}
   .item .d{color:var(--muted)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
-  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-  .metric .k{font-size:13px;color:var(--muted)}
-  .metric .v{font-size:22px;font-weight:600;margin-top:2px}
-  .metric .s{font-size:12px;color:var(--faint)}
-  table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:6px}
-  td{padding:7px 0;border-bottom:1px solid var(--line)}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+  .metric{border-radius:10px;padding:12px 14px;border:1px solid var(--line)}
+  .metric.btc{background:var(--btc-tint)} .metric.gold{background:var(--gold-tint)} .metric.silver{background:var(--silver-tint)}
+  .metric .k{font-size:13px;font-weight:600}
+  .metric.btc .k{color:var(--btc)} .metric.gold .k{color:var(--gold)} .metric.silver .k{color:var(--silver)}
+  .metric .v{font-size:23px;font-weight:700;margin-top:2px;color:var(--ink)}
+  .metric .s{font-size:12px;color:var(--muted)}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:18px;
+    border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  th{background:var(--mkt-tint);color:var(--mkt);text-align:left;font-size:12px;
+    text-transform:uppercase;letter-spacing:.05em;padding:8px 14px}
+  td{padding:9px 14px;border-top:1px solid var(--line)}
+  td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  tbody tr:nth-child(even){background:var(--zebra)}
   td:first-child{color:var(--muted)}
-  td:last-child{text-align:right}
-  tr:last-child td{border-bottom:none}
-  .news li{margin:6px 0;font-size:14.5px;color:var(--muted)}
-  .news .t{color:var(--ink)}
-  .burry{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:14px}
-  .burry h3{font-size:14px;font-weight:600;margin:0 0 8px}
-  .burry div{font-size:14.5px;color:var(--muted);margin:3px 0}
-  .buy{color:var(--good);font-weight:600}
-  ul{margin:0;padding-left:18px}
-  footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--faint)}
+
+  .sub{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mkt);margin:0 0 8px}
+  .news{list-style:none;padding:0;margin:0 0 4px}
+  .news li{font-size:14.5px;color:var(--muted);padding:8px 0;border-top:1px solid var(--line)}
+  .news li:first-child{border-top:none}
+  .news .t{color:var(--ink);font-weight:600}
+
+  .burry{background:var(--burry-tint);border:1px solid var(--line);border-left:4px solid var(--burry);
+    border-radius:10px;padding:14px 16px;margin-top:16px}
+  .burry h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--burry);margin:0 0 8px}
+  .burry div{font-size:14.5px;color:var(--muted);margin:4px 0}
+  .buy{color:#15803d;font-weight:700}
+  @media (prefers-color-scheme: dark){ .buy{color:#5fce9a} }
+  .hold{font-weight:700;color:var(--ink)}
+
+  footer{font-size:12px;color:var(--faint);text-align:center;margin-top:8px}
+  @media (max-width:520px){ .cards{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
+  <div class="topbar">
     <h1>Grace Dashboard</h1>
-    <div class="stamp">Refreshed Sun Jun 21, 2026 · 4:56 AM CT · <span title="equities &amp; 10-yr = Thu Jun 18 close (markets closed Fri for Juneteenth); crypto &amp; metals live">prices: last close / live</span></div>
-  </header>
-
-  <h2>Intel</h2>
-
-  <div class="lead">
-    <div class="tag">Lead · cross-source</div>
-    <h3>Own your AI workflows, don't rent them</h3>
-    <p>Nate Jones's <em>Open Skills</em> (portable agent skills that move across Claude Code, Codex, Cursor) lands the same week Castmagic ships a read-only Claude connector. The signal: AI value is shifting from the model to the workflow you own. <span class="why">For BrightSol: productize a client's workflow as portable, owned skills + connectors.</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></p>
+    <div class="stamp">Refreshed Sun Jun 21, 2026 · 4:56 AM CT — equities &amp; 10-yr = Thu Jun 18 close (markets closed Fri for Juneteenth); crypto &amp; metals live</div>
   </div>
 
-  <div class="src">
-    <div class="name">Nate Jones <span>· core source</span></div>
-    <div class="item"><span class="t">Open Skills, the library</span> <span class="d">— installable public agent skills; "the way you work should be yours."</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
-    <div class="item"><span class="t">Prompt ≠ memory ≠ skill</span> <span class="d">— only the skill survives a tool switch.</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
-    <div class="item"><span class="t">The one-question ownership test</span> <span class="d">— "can this workflow move tools intact?"</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+  <div class="panel">
+    <div class="phead intel">Intel</div>
+    <div class="pbody">
+
+      <div class="lead">
+        <div class="tag">Lead · cross-source</div>
+        <h3>Own your AI workflows, don't rent them</h3>
+        <p>Nate Jones's <em>Open Skills</em> (portable agent skills that move across Claude Code, Codex, Cursor) lands the same week Castmagic ships a read-only Claude connector. The signal: AI value is shifting from the model to the workflow you own. <span class="why">For BrightSol: productize a client's workflow as portable, owned skills + connectors.</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></p>
+      </div>
+
+      <div class="src">
+        <span class="chip">Nate Jones · core</span>
+        <div class="item"><span class="t">Open Skills, the library</span> <span class="d">— installable public agent skills; "the way you work should be yours."</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+        <div class="item"><span class="t">Prompt ≠ memory ≠ skill</span> <span class="d">— only the skill survives a tool switch.</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+        <div class="item"><span class="t">The one-question ownership test</span> <span class="d">— "can this workflow move tools intact?"</span> <a class="read" href="https://natesnewsletter.substack.com/p/claude-codex-agent-skills">Read →</a></div>
+      </div>
+
+      <div class="src">
+        <span class="chip">The AI Break</span>
+        <div class="item"><span class="t">AI Creator Outreach Engine</span> <span class="d">— a 6-prompt chain that replaces a ~$2K/mo influencer agency; ready to hand creator/retail clients.</span> <a class="read" href="https://theaibreak.substack.com/p/tutorial-replace-your-2kmonth-influencer">Read →</a></div>
+      </div>
+
+      <div class="src">
+        <span class="chip">Superhuman</span>
+        <div class="item"><span class="t">Waymo "Premier"</span> <span class="d">— a $29.99/mo robotaxi subscription; loyalty economics arrive in autonomous services.</span> <a class="read" href="https://www.cnbc.com/2026/06/11/waymo-launches-premier-subscription-tier-for-29point99-a-month.html">Read →</a></div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="src">
-    <div class="name">The AI Break <span>· other source</span></div>
-    <div class="item"><span class="t">AI Creator Outreach Engine</span> <span class="d">— a 6-prompt chain that replaces a ~$2K/mo influencer agency; ready to hand creator/retail clients.</span> <a class="read" href="https://theaibreak.substack.com/p/tutorial-replace-your-2kmonth-influencer">Read →</a></div>
+  <div class="panel">
+    <div class="phead mkt">Markets &amp; financial news</div>
+    <div class="pbody">
+
+      <div class="cards">
+        <div class="metric btc"><div class="k">Bitcoin</div><div class="v">$66.0K</div><div class="s">24h $64.1K–$66.3K</div></div>
+        <div class="metric gold"><div class="k">Gold</div><div class="v">$4,169</div><div class="s">/oz · near record</div></div>
+        <div class="metric silver"><div class="k">Silver</div><div class="v">$65.56</div><div class="s">/oz · Sun AM</div></div>
+      </div>
+
+      <table>
+        <thead><tr><th>Instrument</th><th>Last</th></tr></thead>
+        <tbody>
+          <tr><td>S&amp;P 500</td><td>7,500.58 &nbsp;+1.08%</td></tr>
+          <tr><td>Nasdaq</td><td>26,517.93 &nbsp;+1.91%</td></tr>
+          <tr><td>Dow</td><td>51,564.70 &nbsp;+0.14%</td></tr>
+          <tr><td>NVIDIA (NVDA)</td><td>$210.69</td></tr>
+          <tr><td>WTI crude</td><td>~$77.5</td></tr>
+          <tr><td>10-yr Treasury</td><td>4.46%</td></tr>
+          <tr><td>SpaceX (SPCX)</td><td>$185.00</td></tr>
+        </tbody>
+      </table>
+
+      <p class="sub">Headlines</p>
+      <ul class="news">
+        <li><span class="t">SpaceX completes the largest IPO in history</span> (Jun 12): ~$75B raised at $135/sh, now ~$185 — ~$2.44T cap. <a class="read" href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html">Read →</a></li>
+        <li><span class="t">Stocks rebounded Thu Jun 18</span> (Nasdaq +1.9%) after the post-Fed selloff; markets closed Fri for Juneteenth. <a class="read" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-18-2026">Read →</a></li>
+        <li><span class="t">Gold holds near a record</span> ~$4,169/oz, silver ~$65.6 as the metals run extends. <a class="read" href="https://fortune.com/article/current-price-of-gold-06-12-2026/">Read →</a></li>
+      </ul>
+
+      <div class="burry">
+        <h3>Michael Burry · Trading Post (Jun 18)</h3>
+        <div><span class="buy">BUY</span> Mercado Libre (MELI) ~$1,630 — down 39% from its high; "quality on sale."</div>
+        <div><span class="buy">BUY</span> Fiserv (FISV) ~$49.50 — added to a full position.</div>
+        <div><span class="hold">HOLD</span> Samsung Electronics — top-3, built near tangible book.</div>
+        <div>AI-skeptic: "LLMs are language models, not AI"; wary of the AI-capex trade. <a class="read" href="https://michaeljburry.substack.com/p/trading-post-june-18-2026">Read →</a></div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="src">
-    <div class="name">Superhuman <span>· other source</span></div>
-    <div class="item"><span class="t">Waymo "Premier"</span> <span class="d">— a $29.99/mo robotaxi subscription; loyalty economics arrive in autonomous services.</span> <a class="read" href="https://www.cnbc.com/2026/06/11/waymo-launches-premier-subscription-tier-for-29point99-a-month.html">Read →</a></div>
-  </div>
-
-  <h2>Markets &amp; financial news</h2>
-
-  <div class="cards">
-    <div class="metric"><div class="k">Bitcoin</div><div class="v">$66.0K</div><div class="s">24h $64.1K–$66.3K</div></div>
-    <div class="metric"><div class="k">Gold</div><div class="v">$4,169</div><div class="s">/oz · near record</div></div>
-    <div class="metric"><div class="k">Silver</div><div class="v">$65.56</div><div class="s">/oz · Sun AM</div></div>
-  </div>
-
-  <table>
-    <tr><td>S&amp;P 500</td><td>7,500.58 &nbsp;<span style="color:var(--faint)">+1.08%</span></td></tr>
-    <tr><td>Nasdaq</td><td>26,517.93 &nbsp;<span style="color:var(--faint)">+1.91%</span></td></tr>
-    <tr><td>Dow</td><td>51,564.70 &nbsp;<span style="color:var(--faint)">+0.14%</span></td></tr>
-    <tr><td>NVIDIA (NVDA)</td><td>$210.69</td></tr>
-    <tr><td>WTI crude</td><td>~$77.5</td></tr>
-    <tr><td>10-yr Treasury</td><td>4.46%</td></tr>
-    <tr><td>SpaceX (SPCX)</td><td>$185.00</td></tr>
-  </table>
-
-  <ul class="news">
-    <li><span class="t">SpaceX completes the largest IPO in history</span> (Jun 12): ~$75B raised at $135/sh, now ~$185 — ~$2.44T cap. <a class="read" href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html">Read →</a></li>
-    <li><span class="t">Stocks rebounded Thu Jun 18</span> (Nasdaq +1.9%) after the post-Fed selloff; markets closed Fri for Juneteenth. <a class="read" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-18-2026">Read →</a></li>
-    <li><span class="t">Gold holds near a record</span> ~$4,169/oz, silver ~$65.6 as the metals run extends. <a class="read" href="https://fortune.com/article/current-price-of-gold-06-12-2026/">Read →</a></li>
-  </ul>
-
-  <div class="burry">
-    <h3>Michael Burry · Trading Post (Jun 18)</h3>
-    <div><span class="buy">BUY</span> Mercado Libre (MELI) ~$1,630 — down 39% from its high; "quality on sale."</div>
-    <div><span class="buy">BUY</span> Fiserv (FISV) ~$49.50 — added to a full position.</div>
-    <div><strong>HOLD</strong> Samsung Electronics — top-3, built near tangible book.</div>
-    <div>AI-skeptic: "LLMs are language models, not AI"; wary of the AI-capex trade. <a class="read" href="https://michaeljburry.substack.com/p/trading-post-june-18-2026">Read →</a></div>
-  </div>
-
-  <footer>Grace · AI Chief of Staff · intel + markets surface. The #grace post carries the action view and links here. Auto-refreshed each morning.</footer>
+  <footer>Grace · AI Chief of Staff · intel + markets surface · auto-refreshed each morning</footer>
 
 </div>
 </body>
