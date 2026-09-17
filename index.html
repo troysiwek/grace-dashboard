@@ -4,210 +4,182 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Grace Dashboard</title>
+<title>Morning paper — Thu Sep 17</title>
 <style>
   :root{
     --bg:#e9ebf0; --ink:#1b1c20; --muted:#5d5f66; --faint:#8a8c93;
     --card:#ffffff; --line:#dfe1e7; --accent:#2563eb;
-    --intel:#3b3f9e; --intel-tint:#eef0fc;
     --mkt:#0f766e; --mkt-tint:#e7f4f1;
-    --burry:#b45309; --burry-tint:#fdf2e2;
-    --btc:#b45309; --btc-tint:#fdeede;
-    --gold:#a16207; --gold-tint:#fbf4d8;
-    --silver:#475569; --silver-tint:#eef1f4;
-    --zebra:#f6f7f9;
+    --sig:#1e4d7b; --sig-tint:#e8eef6;
+    --wrt:#3b3f9e; --wrt-tint:#eef0fc;
+    --beat:#9a3412; --beat-tint:#fdf0e9;
+    --up:#15803d; --dn:#b91c1c; --zebra:#f6f7f9;
   }
   @media (prefers-color-scheme: dark){
     :root{
       --bg:#121317; --ink:#ececee; --muted:#a6a8af; --faint:#74767d;
       --card:#1d1e24; --line:#31333c; --accent:#6ea2ff;
-      --intel:#aab0ff; --intel-tint:#23253a;
       --mkt:#5fd0c0; --mkt-tint:#16302c;
-      --burry:#e8a24f; --burry-tint:#33260f;
-      --btc:#e8a24f; --btc-tint:#33260f;
-      --gold:#d9b341; --gold-tint:#302a10;
-      --silver:#9fb0c4; --silver-tint:#1f2630;
-      --zebra:#23242b;
+      --sig:#7eb0e0; --sig-tint:#1a2836;
+      --wrt:#aab0ff; --wrt-tint:#23253a;
+      --beat:#e8a24f; --beat-tint:#33260f;
+      --up:#5fce9a; --dn:#f0736b; --zebra:#23242b;
     }
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;
-    overflow-wrap:break-word;word-break:break-word;text-size-adjust:100%;-webkit-text-size-adjust:100%}
-  .wrap{max-width:780px;margin:0 auto;padding:22px 16px 64px}
+    line-height:1.45;font-size:16px;-webkit-font-smoothing:antialiased;
+    overflow-wrap:break-word;word-break:break-word;
+    text-size-adjust:100%;-webkit-text-size-adjust:100%}
+  .wrap{max-width:820px;margin:0 auto;padding:16px 12px 48px}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
-  .read{font-size:13px;font-weight:600;white-space:nowrap}
-
-  .topbar{display:flex;align-items:center;gap:14px;background:var(--intel);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:20px}
-  .topbar .avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none;border:2px solid rgba(255,255,255,.65);background:#cfe0f3}
-  .topbar h1{margin:0;font-size:22px;font-weight:700;letter-spacing:-.2px}
-  .topbar .stamp{font-size:13px;opacity:.9;margin-top:3px}
-
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    overflow:hidden;margin-bottom:20px}
-  .phead{padding:12px 20px;color:#fff;font-weight:700;
-    font-size:14px;text-transform:uppercase;letter-spacing:.07em}
-  .phead.intel{background:var(--intel)}
+  .topbar{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#0f766e,#3b3f9e);
+    color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px}
+  .topbar .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.65);flex:none}
+  .topbar h1{margin:0;font-size:20px;font-weight:700}
+  .topbar .stamp{font-size:12px;opacity:.92;margin-top:2px}
+  .panels{display:grid;gap:12px}
+  @media(min-width:720px){.panels{grid-template-columns:1fr 1fr;}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .panel.wide{grid-column:1 / -1}
+  .phead{padding:10px 14px;color:#fff;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.07em}
   .phead.mkt{background:var(--mkt)}
-  .pbody{padding:18px 20px}
-
-  .lead{background:var(--intel-tint);border-left:4px solid var(--intel);border-radius:8px;
-    padding:14px 16px;margin-bottom:18px}
-  .lead .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--intel)}
-  .lead h3{font-size:16px;font-weight:700;margin:3px 0 6px}
-  .lead p{margin:0;color:var(--muted);font-size:14.5px}
-  .lead .why{color:var(--ink);font-weight:500}
-
-  .src{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:12px;background:var(--card)}
-  .src:last-child{margin-bottom:0}
-  .chip{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
-    color:var(--intel);background:var(--intel-tint);padding:3px 9px;border-radius:999px;margin-bottom:8px}
-  .item{font-size:14.5px;padding:5px 0;border-top:1px solid var(--line)}
+  .phead.sig{background:var(--sig)}
+  .phead.wrt{background:var(--wrt)}
+  .phead.beat{background:var(--beat)}
+  .pbody{padding:12px 14px}
+  .btc{background:var(--mkt-tint);border-radius:10px;padding:12px 14px;margin-bottom:10px;
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+  .btc .k{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mkt)}
+  .btc .v{font-size:26px;font-weight:800}
+  .btc .s{font-size:13px;color:var(--muted)}
+  .up{color:var(--up);font-weight:700}
+  .dn{color:var(--dn);font-weight:700}
+  .book-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .book{width:100%;border-collapse:collapse;font-size:14px;min-width:280px}
+  .book th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mkt);
+    padding:6px 8px;border-bottom:1px solid var(--line)}
+  .book td{padding:7px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+  .book tr:nth-child(even) td{background:var(--zebra)}
+  .book td:nth-child(2),.book td:nth-child(3),.book th:nth-child(2),.book th:nth-child(3){text-align:right}
+  .flags{margin:10px 0 0;padding:0;list-style:none}
+  .flags li{font-size:13px;color:var(--muted);padding:4px 0}
+  .flags strong{color:var(--ink)}
+  .lead{background:var(--wrt-tint);border-left:4px solid var(--wrt);border-radius:8px;padding:10px 12px;margin-bottom:10px}
+  .lead .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--wrt)}
+  .lead p{margin:4px 0 0;font-size:14px}
+  .item{padding:8px 0;border-top:1px solid var(--line);font-size:14px}
   .item:first-of-type{border-top:none}
-  .item .t{font-weight:600;color:var(--ink)}
-  .item .d{color:var(--muted)}
-
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
-  .metric{border-radius:10px;padding:12px 14px;border:1px solid var(--line)}
-  .metric.btc{background:var(--btc-tint)} .metric.gold{background:var(--gold-tint)} .metric.silver{background:var(--silver-tint)}
-  .metric .k{font-size:13px;font-weight:600}
-  .metric.btc .k{color:var(--btc)} .metric.gold .k{color:var(--gold)} .metric.silver .k{color:var(--silver)}
-  .metric .v{font-size:23px;font-weight:700;margin-top:2px;color:var(--ink)}
-  .metric .s{font-size:12px;color:var(--muted)}
-
-  table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:18px;
-    border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  th{background:var(--mkt-tint);color:var(--mkt);text-align:left;font-size:12px;
-    text-transform:uppercase;letter-spacing:.05em;padding:8px 14px}
-  td{padding:9px 14px;border-top:1px solid var(--line)}
-  td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums}
-  tbody tr:nth-child(even){background:var(--zebra)}
-  td:first-child{color:var(--muted)}
-
-  .sub{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mkt);margin:0 0 8px}
-  .news{list-style:none;padding:0;margin:0 0 4px}
-  .news li{font-size:14.5px;color:var(--muted);padding:8px 0;border-top:1px solid var(--line)}
-  .news li:first-child{border-top:none}
-  .news .t{color:var(--ink);font-weight:600}
-
-  .burry{background:var(--burry-tint);border:1px solid var(--line);border-left:4px solid var(--burry);
-    border-radius:10px;padding:14px 16px;margin-top:16px}
-  .burry h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--burry);margin:0 0 8px}
-  .burry div{font-size:14.5px;color:var(--muted);margin:4px 0}
-  .buy{color:#15803d;font-weight:700}
-  @media (prefers-color-scheme: dark){ .buy{color:#5fce9a} }
-  .sell{color:#b91c1c;font-weight:700}
-  @media (prefers-color-scheme: dark){ .sell{color:#f0736b} }
-  .hold{font-weight:700;color:var(--ink)}
-
-  footer{font-size:12px;color:var(--faint);text-align:center;margin-top:8px}
+  .item .t{font-weight:600}
+  .item .d{color:var(--muted);font-size:13px}
+  .chip{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--wrt);background:var(--wrt-tint);padding:2px 8px;border-radius:999px;margin-bottom:4px}
+  .empty{font-size:14px;color:var(--muted);padding:4px 0}
+  footer{font-size:11px;color:var(--faint);text-align:center;margin-top:14px}
   @media (max-width:600px){
-    .wrap{padding:14px 11px 48px}
-    .topbar{padding:13px 14px;border-radius:12px;gap:11px}
-    .topbar .avatar{width:44px;height:44px}
-    .topbar h1{font-size:20px}
-    .topbar .stamp{font-size:12px}
-    .pbody{padding:14px 13px}
-    .phead{padding:11px 14px}
-    .cards{grid-template-columns:1fr;gap:10px}
-    .metric{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-    .metric .v{font-size:20px}
-    .metric .s{margin-left:auto}
-    th,td{padding:8px 10px}
-    .read{display:inline-block;padding:2px 0}
+    .wrap{padding:12px 10px 40px}
+    .topbar{padding:12px 13px;gap:10px}
+    .topbar h1{font-size:18px}
+    .btc .v{font-size:24px}
+    .pbody{padding:12px 13px}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <div class="topbar">
-    <img class="avatar" src="grace-avatar.png" alt="Grace" width="54" height="54">
+    <img class="avatar" src="grace-avatar.png" alt="Grace" width="44" height="44">
     <div>
-      <h1>Grace Dashboard</h1>
-      <div class="stamp">Refreshed Mon Jul 27, 2026 · 4:50 AM CT — equities = Fri Jul 24 close (US markets reopen today 8:30 AM CT); Bitcoin, metals &amp; oil = live pre-dawn quote</div>
+      <h1>Morning paper</h1>
+      <div class="stamp">Thursday · Sep 17, 2026 · coffee read</div>
     </div>
   </div>
 
-  <div class="panel">
-    <div class="phead intel">Intel</div>
-    <div class="pbody">
-
-      <div class="lead">
-        <div class="tag">Lead · cross-source</div>
-        <h3>Agentic commerce has crossed from "brands piloting assistants" to "<em>the platform layer going generally available underneath them</em>" — the shopping rails are commoditizing, so the value moves up to the brand-owned build and governance on top, which is exactly BrightSol's lane</h3>
-        <p><strong>Salesforce shipped Agentforce Commerce</strong> — Shopper, Buyer and Merchant agents now <strong>generally available</strong> and able to <em>act</em> (check inventory, confirm cutoff, close the sale), with native ChatGPT / Google / Gemini hooks — and <strong>ChatGPT Shopping opened to all U.S. users</strong> (Etsy + 1M+ Shopify merchants), while Google's AI Mode added agentic checkout (Wayfair, Chewy, Etsy) atop its Universal Commerce Protocol. Both sit on open rails now — OpenAI's Agentic Commerce Protocol (with Stripe; Instacart, DoorDash, Shopify, Etsy) and Google's UCP. <span class="why">When the checkout rails become a commodity every platform hands out, the differentiator is no longer <em>having</em> an agent — it's <strong>owning</strong> the one on your own surface: who governs it, what it reads, how it's maintained as catalog and tools drift. Salesforce's own number — retailers running their <em>own</em> shopper agents grew sales <strong>~59% faster</strong> — is the "move now" case for a client on the fence, and McKinsey's $900B–$1T U.S. agentic-commerce forecast by 2030 is the size of the pond. The build-plus-maintain engagement (owner card, permissions, executable trust checks, a maintenance loop) is the retainer BrightSol is built to sell. Nate Jones's discipline is what keeps it alive: verify the work not the model, give every agent an owner and a registry, scope before you automate.</span> <a class="read" href="https://www.salesforce.com/news/press-releases/2026/07/06/as-ai-agents-transform-commerce-salesforce-unleashes-its-biggest-agentforce-commerce-release-yet/">Read →</a></p>
+  <div class="panels">
+    <div class="panel wide">
+      <div class="phead mkt">Markets</div>
+      <div class="pbody">
+        <div class="btc">
+          <div class="k">Bitcoin</div>
+          <div class="v">$76,600</div>
+          <div class="s"><span class="up">+0.6% day</span> · week ~−2.1% · Flow ACCUMULATING</div>
+        </div>
+        <div class="book-wrap">
+        <table class="book">
+          <thead><tr><th>IRA</th><th>Last</th><th>Day</th></tr></thead>
+          <tbody>
+            <tr><td>FBTC</td><td>$66.10</td><td class="dn">−0.2%</td></tr>
+            <tr><td>LYSDY</td><td>$9.53</td><td class="dn">−2.9%</td></tr>
+            <tr><td>UUUU</td><td>$11.73</td><td class="dn">−1.1%</td></tr>
+            <tr><td>SLV</td><td>$57.05</td><td class="dn">−0.8%</td></tr>
+            <tr><td>BSX</td><td>$43.91</td><td class="up">+0.1%</td></tr>
+            <tr><td>GLDM</td><td>$84.53</td><td class="dn">−0.6%</td></tr>
+            <tr><td>Dry powder</td><td>~$233k</td><td>FZDXX 7d ~3.49%</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <ul class="flags">
+          <li><strong>FBTC</strong> · ~52% invested watch · trim only into strength</li>
+          <li><strong>NB</strong> · at/near 52w low · $3.50 vs $3.41 (~2.8% off)</li>
+          <li><strong>ALM</strong> · week −26.5% · tungsten fade</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="src">
-        <span class="chip">AI roundup · web-sourced</span>
-        <div class="item"><span class="t">Salesforce Agentforce Commerce hits GA — Shopper / Buyer / Merchant agents that transact, not just chat (Jul 6)</span> <span class="d">— the agents now check inventory, confirm cutoffs and close sales, with native ChatGPT, Google Search (AI Mode) and Gemini integration. Salesforce's headline stat: retailers running their own shopper agents grew sales ~59% faster than the sidelined. This is the platform layer BrightSol builds on top of for the mid-market — brand-owned, maintained, governed.</span> <a class="read" href="https://www.salesforce.com/news/press-releases/2026/07/06/as-ai-agents-transform-commerce-salesforce-unleashes-its-biggest-agentforce-commerce-release-yet/">Read →</a></div>
-        <div class="item"><span class="t">Open checkout standards harden — OpenAI's Agentic Commerce Protocol (with Stripe) and Google's Universal Commerce Protocol</span> <span class="d">— ChatGPT Shopping is live for all U.S. users (Etsy + 1M+ Shopify merchants) and Google's AI Mode added agentic checkout (Wayfair, Chewy, Etsy). ACP partners now include Instacart, DoorDash, Shopify and Etsy. Discovery is moving off the search box for good — the client edge is owning the on-site conversion surface AI refers into, wired to an open standard rather than one marketplace's rails.</span> <a class="read" href="https://emarketer.com/content/agentic-shopping--outcome-driven-ai--creator-commerce--takeaways-shoptalk-2026">Read →</a></div>
-        <div class="item"><span class="t">Reality check: infrastructure is outrunning consumer behavior</span> <span class="d">— McKinsey pegs $900B–$1T in U.S. agentic-commerce revenue by 2030 ($3–5T globally), but analysts flag that the rails are being built faster than shoppers are adopting them. The near-term win for a client isn't a moonshot bet — it's a scoped, brand-owned agent that converts the AI-referred traffic they already get, with a maintenance loop so it doesn't rot.</span> <a class="read" href="https://www.uschamber.com/co/good-company/launch-pad/agentic-ai-impact-consumer-business-2026">Read →</a></div>
+    <div class="panel wide">
+      <div class="phead sig">Client Signals</div>
+      <div class="pbody">
+        <p class="empty">No fresh client-tape items in the last 7 days</p>
       </div>
+    </div>
 
-      <div class="src">
-        <span class="chip">Nate Jones (natesnewsletter) · web-sourced · recent</span>
-        <div class="item"><span class="t">How to trust AI agents: verify the work, not the model</span> <span class="d">— Nate ran 20+ agents across 4 model families to rebuild a website in an afternoon for ~$8, and executable checks caught every hallucination, every shortcut, even the boss model's own bug. The fix for untrustworthy agents isn't a better model — it's the check layer around it. That governance layer is the defensible, recurring half of an engagement.</span> <a class="read" href="https://natesnewsletter.substack.com/p/trust-ai-agents">Read →</a></div>
-        <div class="item"><span class="t">Every agent needs an owner, an operating loop, and a registry</span> <span class="d">— "the team that wins is not the one with the most agents; it's the one that knows what each agent does." Maintenance is the grown-up AI skill for 2026 — the owner-card model is what turns a one-off build into a maintained, retainer-shaped relationship.</span> <a class="read" href="https://www.natebjones.com/">Read →</a></div>
-        <div class="item"><span class="t">Let AI pick what to automate — same brief, two very different answers</span> <span class="d">— Nate handed two frontier models an identical open brief and got divergent automation plans, underscoring that scoping (deciding <em>what</em> belongs in an agent) is the human discipline that has to come before the build. It's the step BrightSol runs before promising a client anything.</span> <a class="read" href="https://natesnewsletter.substack.com/">Read →</a></div>
+    <div class="panel">
+      <div class="phead wrt">Writers</div>
+      <div class="pbody">
+        <div class="lead">
+          <div class="tag">Lead · cross-source</div>
+          <p>The AI moment is still early, and the pacing debate is live across Nate, AI Break, and AI Business Weekly.</p>
+        </div>
+        <div class="item">
+          <span class="chip">Nate B. Jones</span>
+          <div class="t"><a href="https://natesnewsletter.substack.com/p/apple-openai-good-enough-ai">AI is still in 1997</a></div>
+          <div class="d">Good-enough AI — the infrastructure moment before anyone can explain why you need it.</div>
+        </div>
+        <div class="item">
+          <span class="chip">The AI Break</span>
+          <div class="t"><a href="https://theaibreak.substack.com/p/altman-and-musk-just-agreed-with">Altman &amp; Musk agree with Anthropic: slow down</a></div>
+          <div class="d">Cross-source pacing signal with Nate’s “still early” frame.</div>
+        </div>
+        <div class="item">
+          <span class="chip">AI Business Weekly</span>
+          <div class="t"><a href="https://aibusinessweekly.net/p/bell-trump-amodei-flam-ai-news-september-15-2026">An AI CEO just gave us a deadline</a></div>
+          <div class="d">Unique from the lead — policy/deadline angle.</div>
+        </div>
       </div>
+    </div>
 
-      <div class="src">
-        <span class="chip">Other sources + newsletter status</span>
-        <div class="item"><span class="d">No new email issue landed overnight from <strong>AI Business Weekly</strong>, <strong>Superhuman AI</strong>, or <strong>The AI Break</strong> — the connected inbox still receives only Yahoo-forwarded mail, so those source flows aren't reaching the grace@ hub yet. The AI roundup and Nate Jones items above are web-sourced to their canonical pages; per-source email coverage (and the two planned Retail / Supply-Chain sections) resume once those inbound flows are wired up.</span></div>
+    <div class="panel">
+      <div class="phead beat">Beats</div>
+      <div class="pbody">
+        <div class="item">
+          <div class="t"><a href="https://www.retailgazette.co.uk/blog/2026/09/guess-127-warehouse-robots/">Guess / GXO / Exotec</a></div>
+          <div class="d">127 Skypods live for Guess (Sep 15) — retail automation scale.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://warehousenews.co.uk/2026/09/hai-robotics-selected-to-deliver-the-worlds-largest-deployment-of-rack-climbing-warehouse-robots/">Hai Robotics</a></div>
+          <div class="d">1,500+ HaiPick Climb for fashion FC (Sep 14).</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://aibusinessweekly.net/p/exein-270-million-physical-ai-cybersecurity">Exein</a></div>
+          <div class="d">Rome physical-AI cyber raises $270M — OT/robotics security.</div>
+        </div>
       </div>
-
     </div>
   </div>
 
-  <div class="panel">
-    <div class="phead mkt">Markets &amp; financial news</div>
-    <div class="pbody">
-
-      <div class="cards">
-        <div class="metric btc"><div class="k">Bitcoin</div><div class="v">~$65.3K</div><div class="s">≈+1.3% (24h) · reclaimed $65K after last week's ETF-outflow wobble</div></div>
-        <div class="metric gold"><div class="k">Gold</div><div class="v">$4,091</div><div class="s">/oz · ≈+0.9% · comfortably above $4,000</div></div>
-        <div class="metric silver"><div class="k">Silver</div><div class="v">$59.5</div><div class="s">/oz · firm · pushing toward $60</div></div>
-      </div>
-
-      <table>
-        <thead><tr><th>Instrument</th><th>Last</th></tr></thead>
-        <tbody>
-          <tr><td>S&amp;P 500</td><td>7,411.98 &nbsp;+0.05% · Fri Jul 24 close</td></tr>
-          <tr><td>Nasdaq</td><td>24,975.82 &nbsp;−0.64% · Fri close (chips stayed heavy)</td></tr>
-          <tr><td>Dow</td><td>51,947.25 &nbsp;+0.46% (+236) · Fri close</td></tr>
-          <tr><td>NVIDIA (NVDA)</td><td>$206.80 &nbsp;· ≈flat · Fri close</td></tr>
-          <tr><td>WTI crude</td><td>~$84 &nbsp;· −~8% · Hormuz traffic normalizing + Iran-sanctions easing add supply</td></tr>
-          <tr><td>10-yr Treasury</td><td>~4.69% &nbsp;· Fri; easing further as oil slumps and inflation fears cool</td></tr>
-          <tr><td>SpaceX (SPCX)</td><td>~$115 &nbsp;· near 52-wk low ($110.85); ~49% below high</td></tr>
-        </tbody>
-      </table>
-
-      <p class="sub">Headlines</p>
-      <ul class="news">
-        <li><span class="t">Oil slumps ~8% — WTI back to ~$84 as the Hormuz risk premium bleeds out</span> — crude is unwinding the Strait-of-Hormuz war scare that whipsawed markets last week: tanker traffic is normalizing and easing U.S. sanctions on Iran are bringing added barrels to market. The move pulls the 10-year Treasury yield lower (~4.69% and softening) and quietly takes pressure off the inflation/rate story into the new week. <a class="read" href="https://tradingeconomics.com/commodity/crude-oil">Read →</a></li>
-        <li><span class="t">Bitcoin reclaims ~$65K after a $225M ETF outflow rattled last week</span> — BTC is up ~1.3% over 24h to ~$65.3K, steadying after spot-ETF net outflows of $225.2M on Jul 24 ended a seven-session, ~$1B inflow streak. Sentiment is still cautious — the Crypto Fear &amp; Greed Index sits in "fear" — but price has held the low-$60Ks floor and worked back to the top of the weekend range. <a class="read" href="https://www.coindesk.com/price/bitcoin">Read →</a></li>
-        <li><span class="t">Metals stay firm — gold ~$4,091, silver nearing $60</span> — precious metals held their bid even as the dollar and real rates softened with oil; gold kept the $4,000 handle (+~0.9%) and silver pushed toward $60, its firmest zone in weeks. <a class="read" href="https://www.kitco.com/price/precious-metals">Read →</a></li>
-      </ul>
-
-      <div class="burry">
-        <h3>Michael Burry · positioning</h3>
-        <div><span class="hold">No newer post pulled this run.</span> Latest is the <strong>"Trading Post July 17, 2026 (Plus Netflix &amp; What's Up with the VIX)."</strong> Scion still has no Q2 2026 13F on file, so these are Burry's own disclosures in that post — options commentary, not a filing:</div>
-        <div>• <span class="sell">Added to Dec 2026 NVIDIA (NVDA) puts</span>, struck in the low $100s — a "pocket change" bump; with volatility minimal and the VIX holding in, he nudged the bearish AI position up.</div>
-        <div>• <span class="buy">Sold HALF of his Jan 2027 Oracle (ORCL) puts</span> (low-to-mid $100s strike) — the position had gotten "too big"; he "doesn't fall in love with options trades that go well," so he trimmed a winning bearish bet.</div>
-        <div>• <span class="buy">Added to DraftKings (DKNG)</span> in the ~$25 range — "no change in the basic thesis"; his standout idiosyncratic long.</div>
-        <div>• <span class="hold">Flagged Netflix (NFLX)</span> — questioned the durable value of its content spend after NFLX cratered to ~$74 (from a ~$134 June-2025 peak) and sold off hard on earnings; commentary, not a disclosed trade.</div>
-        <div>Read-through: still bearish the expensive-AI/tech complex (NVDA up, ORCL trimmed on strength), one high-conviction value long (DKNG), and a skeptic's eye on Netflix. Position sizing — not new theses — drove the update. <a class="read" href="https://michaeljburry.substack.com/p/trading-post-july-17-2026-plus-netflix">Read →</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer>Grace · AI Chief of Staff · intel + markets surface · auto-refreshed each morning</footer>
-
+  <footer>Grace · morning paper · Gekko markets + client signals + distilled writers/beats · not a work list</footer>
 </div>
 </body>
 </html>
