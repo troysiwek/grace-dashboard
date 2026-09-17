@@ -68,7 +68,9 @@
   .flags li{font-size:13px;color:var(--muted);padding:4px 0}
   .flags strong{color:var(--ink)}
   .lead{background:var(--wrt-tint);border-left:4px solid var(--wrt);border-radius:8px;padding:10px 12px;margin-bottom:10px}
+  .lead.beat{background:var(--beat-tint);border-left-color:var(--beat)}
   .lead .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--wrt)}
+  .lead.beat .tag{color:var(--beat)}
   .lead p{margin:4px 0 0;font-size:14px}
   .item{padding:8px 0;border-top:1px solid var(--line);font-size:14px}
   .item:first-of-type{border-top:none}
@@ -136,12 +138,30 @@
     </div>
 
     <div class="panel">
+      <div class="phead beat">Beats</div>
+      <div class="pbody">
+        <div class="lead beat">
+          <div class="tag">Editor’s pick · AI + robotics</div>
+          <p>Most important AI and robotics news, especially supply-chain automation — not a dump.</p>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.retailgazette.co.uk/blog/2026/09/guess-127-warehouse-robots/">Guess / GXO / Exotec</a></div>
+          <div class="d">127 Skypods live for Guess (Sep 15) — retail automation scale.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://warehousenews.co.uk/2026/09/hai-robotics-selected-to-deliver-the-worlds-largest-deployment-of-rack-climbing-warehouse-robots/">Hai Robotics</a></div>
+          <div class="d">1,500+ HaiPick Climb for fashion FC (Sep 14).</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://aibusinessweekly.net/p/exein-270-million-physical-ai-cybersecurity">Exein</a></div>
+          <div class="d">Rome physical-AI cyber raises $270M — OT/robotics security.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
       <div class="phead wrt">Writers</div>
       <div class="pbody">
-        <div class="lead">
-          <div class="tag">Lead · cross-source</div>
-          <p>The AI moment is still early, and the pacing debate is live across Nate, AI Break, and AI Business Weekly.</p>
-        </div>
         <div class="item">
           <span class="chip">Nate B. Jones</span>
           <div class="t"><a href="https://natesnewsletter.substack.com/p/apple-openai-good-enough-ai">AI is still in 1997</a></div>
@@ -157,29 +177,23 @@
           <div class="t"><a href="https://aibusinessweekly.net/p/bell-trump-amodei-flam-ai-news-september-15-2026">An AI CEO just gave us a deadline</a></div>
           <div class="d">Unique from the lead — policy/deadline angle.</div>
         </div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div class="phead beat">Beats</div>
-      <div class="pbody">
         <div class="item">
-          <div class="t"><a href="https://www.retailgazette.co.uk/blog/2026/09/guess-127-warehouse-robots/">Guess / GXO / Exotec</a></div>
-          <div class="d">127 Skypods live for Guess (Sep 15) — retail automation scale.</div>
+          <span class="chip">Superhuman</span>
+          <div class="t"><a href="https://www.superhuman.ai/p/chatgpt-s-co-inventor-drops-a-model-that-can-t-hallucinate">ChatGPT’s co-inventor drops a model that can’t hallucinate</a></div>
         </div>
         <div class="item">
-          <div class="t"><a href="https://warehousenews.co.uk/2026/09/hai-robotics-selected-to-deliver-the-worlds-largest-deployment-of-rack-climbing-warehouse-robots/">Hai Robotics</a></div>
-          <div class="d">1,500+ HaiPick Climb for fashion FC (Sep 14).</div>
+          <span class="chip">Lauren McDonald</span>
+          <div class="t"><a href="https://laurenmcdonaldgogogo.substack.com/p/nothing-happened">NOTHING HAPPENED</a></div>
         </div>
         <div class="item">
-          <div class="t"><a href="https://aibusinessweekly.net/p/exein-270-million-physical-ai-cybersecurity">Exein</a></div>
-          <div class="d">Rome physical-AI cyber raises $270M — OT/robotics security.</div>
+          <span class="chip">Michael Burry</span>
+          <div class="t"><a href="https://michaeljburry.substack.com/p/trading-post-friday-september-11">Trading Post Friday September 11, 2026</a></div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer>Grace · morning paper · Gekko markets + client signals + distilled writers/beats · not a work list</footer>
+  <footer>Grace · morning paper · markets + client signals + editor’s-pick beats + followed writers · not a work list</footer>
 </div>
 </body>
 </html>
