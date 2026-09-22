@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0f766e">
-<title>Morning paper — Tue Sep 22</title>
+<title>Morning paper — Tue Sep 22 · format test</title>
 <style>
   :root{
     --bg:#e9ebf0; --ink:#1b1c20; --muted:#5d5f66; --faint:#8a8c93;
@@ -66,12 +66,13 @@
   .up{color:var(--up);font-weight:700}
   .dn{color:var(--dn);font-weight:700}
   .book-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px;padding:0 2px}
-  .book{width:100%;border-collapse:collapse;font-size:15px;min-width:260px}
+  .book{width:100%;border-collapse:collapse;font-size:15px;min-width:420px}
   .book th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mkt);
-    padding:8px 10px;border-bottom:1px solid var(--line)}
-  .book td{padding:10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+    padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  .book td{padding:10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums;white-space:nowrap}
   .book tr:nth-child(even) td{background:var(--zebra)}
-  .book td:nth-child(2),.book td:nth-child(3),.book th:nth-child(2),.book th:nth-child(3){text-align:right}
+  .book td:nth-child(2),.book td:nth-child(3),.book td:nth-child(4),.book td:nth-child(5),
+  .book th:nth-child(2),.book th:nth-child(3),.book th:nth-child(4),.book th:nth-child(5){text-align:right}
   .flags{margin:12px 0 0;padding:0;list-style:none}
   .flags li{font-size:14px;color:var(--muted);padding:6px 0}
   .flags strong{color:var(--ink)}
@@ -103,6 +104,8 @@
     .pbody{padding:14px 14px}
     .phead{padding:11px 14px}
     .item{padding:14px 0}
+    .book{font-size:14px;min-width:400px}
+    .book th,.book td{padding:8px 8px}
   }
 </style>
 </head>
@@ -112,7 +115,7 @@
     <img class="avatar" src="grace-avatar.png" alt="Grace" width="48" height="48">
     <div>
       <h1>Morning paper</h1>
-      <div class="stamp">Tuesday · Sep 22, 2026 · coffee read</div>
+      <div class="stamp">Tuesday · Sep 22, 2026 · format test</div>
     </div>
   </div>
 
@@ -124,27 +127,30 @@
       <div class="pbody">
         <div class="btc">
           <div class="k">Bitcoin</div>
-          <div class="v">$85,900</div>
-          <div class="s"><span class="dn">−0.8% day</span> · week ~+6.2% · Flow ACCUMULATING</div>
+          <div class="v">$86,300</div>
+          <div class="s"><span class="dn">−0.3% day</span> · week ~+6.3% · Flow ACCUMULATING</div>
         </div>
         <div class="book-wrap">
         <table class="book">
-          <thead><tr><th>IRA</th><th>Last</th><th>Day</th></tr></thead>
+          <thead><tr><th>IRA</th><th>Last</th><th>Day</th><th>52w Hi</th><th>52w Lo</th></tr></thead>
           <tbody>
-            <tr><td>FBTC</td><td>$75.27</td><td class="up">+6.5%</td></tr>
-            <tr><td>LYSDY</td><td>$10.02</td><td class="dn">−0.3%</td></tr>
-            <tr><td>UUUU</td><td>$12.28</td><td class="up">+5.0%</td></tr>
-            <tr><td>SLV</td><td>$59.64</td><td class="dn">−0.5%</td></tr>
-            <tr><td>BSX</td><td>$43.74</td><td class="up">+0.9%</td></tr>
-            <tr><td>GLDM</td><td>$85.95</td><td class="dn">−0.7%</td></tr>
-            <tr><td>Dry powder</td><td>~$233k</td><td>FZDXX 7d ~3.49%</td></tr>
+            <tr><td>FBTC</td><td>$75.12</td><td class="dn">−0.3%</td><td>$110.25</td><td>$50.48</td></tr>
+            <tr><td>LYSDY</td><td>$10.21</td><td class="up">+1.9%</td><td>$16.18</td><td>$8.08</td></tr>
+            <tr><td>UUUU</td><td>$12.03</td><td class="dn">−2.2%</td><td>$27.90</td><td>$10.69</td></tr>
+            <tr><td>SLV</td><td>$59.36</td><td class="dn">−0.5%</td><td>$109.83</td><td>$39.64</td></tr>
+            <tr><td>BSX</td><td>$44.66</td><td class="up">+2.2%</td><td>$105.65</td><td>$42.20</td></tr>
+            <tr><td>GLDM</td><td>$85.60</td><td class="dn">−0.4%</td><td>$109.74</td><td>$73.60</td></tr>
+            <tr><td>Dry powder</td><td>~$233k</td><td>FZDXX 7d ~3.49%</td><td>—</td><td>—</td></tr>
           </tbody>
         </table>
         </div>
         <ul class="flags">
-          <li><strong>FBTC</strong> · ~54% invested watch · trim only into strength</li>
-          <li><strong>HE</strong> · NEW 52w low · $9.57 — stay-put peek, not clip</li>
+          <li><strong>FBTC</strong> · mid · ~54% invested watch · trim only into strength</li>
+          <li><strong>UUUU</strong> · near 52w low · $12.03 vs Lo $10.69</li>
+          <li><strong>BSX</strong> · near 52w low · $44.66 vs Lo $42.20</li>
+          <li><strong>HE</strong> · near 52w low · $9.63 (Lo $9.56 · Hi $17.38) — stay-put peek, not clip</li>
         </ul>
+        <p class="note">Quotes · Gekko markets insert · Tue Sep 22 mid-morning CT · format test</p>
       </div>
     </div>
 
@@ -153,12 +159,28 @@
       <div class="phead story">Top Stories</div>
       <div class="pbody">
         <div class="lead story">
-          <div class="tag">Majors · CNBC / WSJ</div>
+          <div class="tag">Majors · digest · CNBC / Reuters / Menlo</div>
           <p><a href="https://www.cnbc.com/2026/09/22/cnbc-daily-open-ai-meta-muse.html">AI trade goes Meta after Muse — Nasdaq hits a fresh record high on the agent download surge.</a></p>
         </div>
         <div class="item">
           <div class="t"><a href="https://www.cnbc.com/2026/09/22/cnbc-daily-open-ai-meta-muse.html">CNBC · Meta Muse lifts Nasdaq to a record</a></div>
           <div class="d">Sep 22 — Meta’s best day in more than a year; Muse tops free iOS apps after ~730k downloads in five days.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.reuters.com/business/feds-musalem-says-more-rate-hikes-likely-needed-quell-inflation-2026-09-21/">Reuters · Fed’s Musalem: more hikes likely to quell inflation</a></div>
+          <div class="d">Sep 21 — St. Louis Fed says 3.75%–4.00% still accommodative; demand + commodity shock keep PCE elevated (~3.7%).</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.cnbc.com/2026/09/15/investors-ai-slowdown-data-center-buildout.html">CNBC · Wall Street weighs AI safety slowdown vs data-center buildout</a></div>
+          <div class="d">Sep 15 — Amodei/Altman “pace the frontier” chatter hit GE Vernova, Caterpillar, Vertiv, CoreWeave, Oracle.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.intelcapital.com/buildots-raises-130m-to-bring-ai-to-the-16t-construction-industry-and-power-the-global-data-center-buildout/">Intel Capital · Buildots raises $130M for AI construction / DC buildout</a></div>
+          <div class="d">Sep 14 — Total capital $297M; physical-AI control tower for hyperscale data centers (Digital Realty, Intel, JE Dunn).</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://menlovc.com/perspective/2026-the-state-of-consumer-ai/">Menlo · Consumer AI spend 3× to $40B as adoption barely moves</a></div>
+          <div class="d">Sep 16 — U.S. adult AI use 61%→64%; depth story: 55% of users pay, daily use 25%; ChatGPT lead shrinking vs Gemini.</div>
         </div>
         <div class="item">
           <div class="t"><a href="https://www.wsj.com/world/middle-east/oil-prices-rise-as-hormuz-shipping-risks-persist-363fbeb1">WSJ · Oil rises as Hormuz shipping risks persist</a></div>
@@ -167,10 +189,6 @@
         <div class="item">
           <div class="t"><a href="https://www.cnbc.com/2026/09/22/oil-iran-us-bessent-un-crude.html">CNBC · Bessent warns Iranian airlines will be shut out of the dollar system</a></div>
           <div class="d">Sep 22 — Fuel, landing services, and ticket sales cut off from Wednesday; UNGA diplomacy still in play.</div>
-        </div>
-        <div class="item">
-          <div class="t"><a href="https://www.cnbc.com/2026/09/22/trump-zelenskyy-ukraine-russia-putin-diesel-oil.html">CNBC · Trump presses Zelenskyy on an energy truce as U.S. diesel hits records</a></div>
-          <div class="d">Sep 22 — Retail diesel above $6.50/gal; Trump says Russia has “lost control” of diesel amid Ukraine strikes.</div>
         </div>
       </div>
     </div>
@@ -274,7 +292,7 @@
 
   </div>
 
-  <footer>Grace · morning paper · markets + top stories + client signals + scout wire + beats + writers · not a work list</footer>
+  <footer>Grace · morning paper · format test · 52w + Top Signals · markets + top stories + client signals + scout wire + beats + writers · not a work list</footer>
 </div>
 </body>
 </html>
