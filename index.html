@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Morning paper — Mon Sep 21</title>
+<meta name="theme-color" content="#0f766e">
+<title>Morning paper — format test Sep 21</title>
 <style>
   :root{
     --bg:#e9ebf0; --ink:#1b1c20; --muted:#5d5f66; --faint:#8a8c93;
     --card:#ffffff; --line:#dfe1e7; --accent:#2563eb;
     --mkt:#0f766e; --mkt-tint:#e7f4f1;
     --sig:#1e4d7b; --sig-tint:#e8eef6;
+    --story:#0c4a6e; --story-tint:#e0f2fe;
+    --wire:#6b21a8; --wire-tint:#f3e8ff;
     --wrt:#3b3f9e; --wrt-tint:#eef0fc;
     --beat:#9a3412; --beat-tint:#fdf0e9;
     --up:#15803d; --dn:#b91c1c; --zebra:#f6f7f9;
@@ -21,6 +24,8 @@
       --card:#1d1e24; --line:#31333c; --accent:#6ea2ff;
       --mkt:#5fd0c0; --mkt-tint:#16302c;
       --sig:#7eb0e0; --sig-tint:#1a2836;
+      --story:#7dd3fc; --story-tint:#0c2a3d;
+      --wire:#d8b4fe; --wire-tint:#2e1a3d;
       --wrt:#aab0ff; --wrt-tint:#23253a;
       --beat:#e8a24f; --beat-tint:#33260f;
       --up:#5fce9a; --dn:#f0736b; --zebra:#23242b;
@@ -29,77 +34,91 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.45;font-size:16px;-webkit-font-smoothing:antialiased;
+    line-height:1.5;font-size:16px;-webkit-font-smoothing:antialiased;
     overflow-wrap:break-word;word-break:break-word;
     text-size-adjust:100%;-webkit-text-size-adjust:100%}
-  .wrap{max-width:820px;margin:0 auto;padding:16px 12px 48px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px 14px 56px}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
   .topbar{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#0f766e,#3b3f9e);
-    color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px}
-  .topbar .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.65);flex:none}
-  .topbar h1{margin:0;font-size:20px;font-weight:700}
-  .topbar .stamp{font-size:12px;opacity:.92;margin-top:2px}
-  .panels{display:grid;gap:12px}
-  @media(min-width:720px){.panels{grid-template-columns:1fr 1fr;}}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    color:#fff;border-radius:16px;padding:16px 18px;margin-bottom:16px}
+  .topbar .avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.65);flex:none}
+  .topbar h1{margin:0;font-size:20px;font-weight:700;letter-spacing:-.01em}
+  .topbar .stamp{font-size:13px;opacity:.92;margin-top:3px}
+  .panels{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:720px){.panels{grid-template-columns:1fr 1fr;gap:14px}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
   .panel.wide{grid-column:1 / -1}
-  .phead{padding:10px 14px;color:#fff;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.07em}
+  .phead{padding:12px 16px;color:#fff;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.07em}
   .phead.mkt{background:var(--mkt)}
+  .phead.story{background:var(--story)}
   .phead.sig{background:var(--sig)}
+  .phead.wire{background:var(--wire)}
   .phead.wrt{background:var(--wrt)}
   .phead.beat{background:var(--beat)}
-  .pbody{padding:12px 14px}
-  .btc{background:var(--mkt-tint);border-radius:10px;padding:12px 14px;margin-bottom:10px;
+  .pbody{padding:14px 16px}
+  .btc{background:var(--mkt-tint);border-radius:12px;padding:14px 16px;margin-bottom:12px;
     display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
   .btc .k{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mkt)}
-  .btc .v{font-size:26px;font-weight:800}
-  .btc .s{font-size:13px;color:var(--muted)}
+  .btc .v{font-size:28px;font-weight:800;letter-spacing:-.02em}
+  .btc .s{font-size:14px;color:var(--muted)}
   .up{color:var(--up);font-weight:700}
   .dn{color:var(--dn);font-weight:700}
-  .book-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .book{width:100%;border-collapse:collapse;font-size:14px;min-width:280px}
+  .book-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -2px;padding:0 2px}
+  .book{width:100%;border-collapse:collapse;font-size:15px;min-width:260px}
   .book th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mkt);
-    padding:6px 8px;border-bottom:1px solid var(--line)}
-  .book td{padding:7px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+    padding:8px 10px;border-bottom:1px solid var(--line)}
+  .book td{padding:10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
   .book tr:nth-child(even) td{background:var(--zebra)}
   .book td:nth-child(2),.book td:nth-child(3),.book th:nth-child(2),.book th:nth-child(3){text-align:right}
-  .flags{margin:10px 0 0;padding:0;list-style:none}
-  .flags li{font-size:13px;color:var(--muted);padding:4px 0}
+  .flags{margin:12px 0 0;padding:0;list-style:none}
+  .flags li{font-size:14px;color:var(--muted);padding:6px 0}
   .flags strong{color:var(--ink)}
-  .lead{background:var(--wrt-tint);border-left:4px solid var(--wrt);border-radius:8px;padding:10px 12px;margin-bottom:10px}
+  .lead{background:var(--wrt-tint);border-left:4px solid var(--wrt);border-radius:10px;padding:12px 14px;margin-bottom:12px}
   .lead.beat{background:var(--beat-tint);border-left-color:var(--beat)}
-  .lead .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--wrt)}
+  .lead.story{background:var(--story-tint);border-left-color:var(--story)}
+  .lead.wire{background:var(--wire-tint);border-left-color:var(--wire)}
+  .lead .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--wrt)}
   .lead.beat .tag{color:var(--beat)}
-  .lead p{margin:4px 0 0;font-size:14px}
-  .item{padding:8px 0;border-top:1px solid var(--line);font-size:14px}
-  .item:first-of-type{border-top:none}
-  .item .t{font-weight:600}
-  .item .d{color:var(--muted);font-size:13px}
+  .lead.story .tag{color:var(--story)}
+  .lead.wire .tag{color:var(--wire)}
+  .lead p{margin:6px 0 0;font-size:15px;line-height:1.45}
+  .item{padding:12px 0;border-top:1px solid var(--line);font-size:15px;min-height:44px}
+  .item:first-of-type{border-top:none;padding-top:4px}
+  .item .t{font-weight:600;line-height:1.35}
+  .item .t a{display:inline;padding:2px 0}
+  .item .d{color:var(--muted);font-size:14px;margin-top:4px;line-height:1.4}
   .chip{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
-    color:var(--wrt);background:var(--wrt-tint);padding:2px 8px;border-radius:999px;margin-bottom:4px}
+    color:var(--wrt);background:var(--wrt-tint);padding:3px 9px;border-radius:999px;margin-bottom:5px}
   .empty{font-size:14px;color:var(--muted);background:var(--sig-tint);border-radius:8px;padding:8px 10px;margin:0}
-  footer{font-size:11px;color:var(--faint);text-align:center;margin-top:14px}
+  .note{font-size:12px;color:var(--faint);margin:8px 0 0;padding-top:8px;border-top:1px dashed var(--line)}
+  footer{font-size:12px;color:var(--faint);text-align:center;margin-top:18px;line-height:1.4;padding:0 8px}
   @media (max-width:600px){
-    .wrap{padding:12px 10px 40px}
-    .topbar{padding:12px 13px;gap:10px}
-    .topbar h1{font-size:18px}
-    .btc .v{font-size:24px}
-    .pbody{padding:12px 13px}
+    .wrap{padding:12px 12px 48px}
+    .topbar{padding:14px 14px;gap:12px;border-radius:14px}
+    .topbar h1{font-size:19px}
+    .topbar .avatar{width:44px;height:44px}
+    .btc .v{font-size:26px}
+    .pbody{padding:14px 14px}
+    .phead{padding:11px 14px}
+    .item{padding:14px 0}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="topbar">
-    <img class="avatar" src="grace-avatar.png" alt="Grace" width="44" height="44">
+    <img class="avatar" src="grace-avatar.png" alt="Grace" width="48" height="48">
     <div>
-      <h1>Morning paper</h1>
-      <div class="stamp">Monday · Sep 21, 2026 · coffee read</div>
+      <h1>Morning paper — format test</h1>
+      <div class="stamp">Monday · Sep 21, 2026 · coffee read · format test</div>
     </div>
   </div>
 
   <div class="panels">
+
+    <!-- 1. Markets -->
     <div class="panel wide">
       <div class="phead mkt">Markets</div>
       <div class="pbody">
@@ -129,6 +148,38 @@
       </div>
     </div>
 
+    <!-- 2. Top Stories -->
+    <div class="panel wide">
+      <div class="phead story">Top Stories</div>
+      <div class="pbody">
+        <div class="lead story">
+          <div class="tag">Majors · CNBC / Bloomberg / MarketWatch</div>
+          <p><a href="https://www.cnbc.com/2026/09/21/paramount-reaches-settlement-over-warner-bros-merger.html">Paramount settles with state AGs — Warner Bros. merger path clears toward a near-term close.</a></p>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.cnbc.com/2026/09/21/paramount-reaches-settlement-over-warner-bros-merger.html">Paramount · Warner Bros. antitrust settlement</a></div>
+          <div class="d">Sep 21 — State AG deal removes the mid-2027 delay risk; Ellison targeting close in ~2 weeks.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.cnbc.com/2026/09/21/intel-surges-12percent-as-cpu-stocks-rally-heres-whats-driving-the-move.html">Intel +12% · CPU stocks lead the AI tape</a></div>
+          <div class="d">Sep 21 — Intel, AMD, Arm rally as CPU demand narrative overtakes GPU-only bets; oil off ~5%.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.marketwatch.com/story/u-s-stocks-rise-nasdaq-hits-record-as-oil-slides-ai-bets-surge-update-acf5dbad">Nasdaq hits record · oil slides, AI bets surge</a></div>
+          <div class="d">Sep 21 — Nasdaq +2.3% to record close; S&amp;P +1.5%; relief rally on Middle East talk hopes.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.bloomberg.com/news/articles/2026-09-21/paramount-to-settle-lawsuits-paving-way-for-warner-bros-merger">Bloomberg · Paramount settlement clears WBD path</a></div>
+          <div class="d">Sep 21 — Weekend talks with California + holdout states; one of Hollywood’s largest mergers unblocked.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.reuters.com/business/wall-st-futures-rise-ai-stocks-gain-oil-prices-slide-2026-09-21/">Reuters · Wall St rises on AI; Accenture–Anthropic $2B</a></div>
+          <div class="d">Sep 21 — Futures/cash bid on AI spend; Accenture partners with Anthropic on AI evaluation capital.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Client Signals -->
     <div class="panel wide">
       <div class="phead sig">Client Signals</div>
       <div class="pbody">
@@ -143,6 +194,39 @@
       </div>
     </div>
 
+    <!-- 4. Scout wire -->
+    <div class="panel wide">
+      <div class="phead wire">Scout wire · X + trade</div>
+      <div class="pbody">
+        <div class="lead wire">
+          <div class="tag">X / wire shortlist · retail · DTC · robotic SC · SC software</div>
+          <p><a href="https://gxo.com/news_article/gxo-exotec-guess-fashion-fulfillment-netherlands/">GXO + Exotec go live with 127 Skypod robots for Guess Venlo — fashion GTP at 40–70k pieces/day.</a></p>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://gxo.com/news_article/gxo-exotec-guess-fashion-fulfillment-netherlands/">Guess · GXO · Exotec Skypod (Venlo)</a></div>
+          <div class="d">Sep 17 — 127 robots, 60k rack locs, 8 GTP stations; EMEA/Asia store + Benelux e-com scale.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://wwd.com/sourcing-journal/logistics/guess-gxo-exotec-robotics-automation-european-fulfillment-skypod-1239236920/">WWD / Sourcing Journal · Guess robotic upgrade</a></div>
+          <div class="d">Sep 16 — Retail fashion fulfillment robotics without a full warehouse redesign.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.rfidnews.co.uk/2026/09/18/lululemons-wuhan-logistics-centre-opens-with-automation-and-end-to-end-rfid-for-footwear-and-apparel-supply-chain/">lululemon Wuhan · RFID spine + automation</a></div>
+          <div class="d">Sep 18 — Tunnel RFID as data spine for AGVs, AirRob storage, sortation; opened Sep 16.</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.humanoidsdaily.com/news/x-square-robot-lululemon-wuhan-warehouse">X Square QUANTA X1 Pro · live at lululemon Wuhan</a></div>
+          <div class="d">Sep 20 — Dual-arm wheeled robot on parcel line inside SF Express–built DC (named retail site).</div>
+        </div>
+        <div class="item">
+          <div class="t"><a href="https://www.logisticsmanager.com/european-fashion-retailer-opens-new-automated-fulfillment-center/">Hai Robotics · 1,500+ HaiPick Climb (EU fashion)</a></div>
+          <div class="d">Sep 8–21 coverage — World’s largest rack-climbing fleet; 24k totes/hr, 1.2M double-deep locs.</div>
+        </div>
+        <p class="note">No X plugin tonight — shortlist from primary trade / company wires on the retail + robotic SC watchlist.</p>
+      </div>
+    </div>
+
+    <!-- 5. Beats -->
     <div class="panel">
       <div class="phead beat">Beats</div>
       <div class="pbody">
@@ -165,6 +249,7 @@
       </div>
     </div>
 
+    <!-- 6. Writers -->
     <div class="panel">
       <div class="phead wrt">Writers</div>
       <div class="pbody">
@@ -194,9 +279,10 @@
         </div>
       </div>
     </div>
+
   </div>
 
-  <footer>Grace · morning paper · markets + client signals + editor’s-pick beats + followed writers · not a work list</footer>
+  <footer>Grace · morning paper · format test · markets + top stories + client signals + scout wire + beats + writers · not a work list</footer>
 </div>
 </body>
 </html>
